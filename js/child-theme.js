@@ -1,6 +1,6 @@
 /*!
   * Understrap v1.2.0 (https://understrap.com)
-  * Copyright 2013-2022 The Understrap Authors (https://github.com/understrap/understrap/graphs/contributors)
+  * Copyright 2013-2023 The Understrap Authors (https://github.com/understrap/understrap/graphs/contributors)
   * Licensed under GPL-3.0 (undefined)
   */
 (function (global, factory) {
@@ -16,6 +16,7 @@
 	}
 
 	function getAugmentedNamespace(n) {
+	  if (n.__esModule) return n;
 	  var f = n.default;
 		if (typeof f == "function") {
 			var a = function a () {
@@ -42,9 +43,17 @@
 		return a;
 	}
 
-	var alert$1 = {exports: {}};
+	var alertExports = {};
+	var alert$1 = {
+	  get exports(){ return alertExports; },
+	  set exports(v){ alertExports = v; },
+	};
 
-	var util = {exports: {}};
+	var utilExports = {};
+	var util = {
+	  get exports(){ return utilExports; },
+	  set exports(v){ utilExports = v; },
+	};
 
 	/*!
 	  * Bootstrap index.js v5.2.3 (https://getbootstrap.com/)
@@ -55,7 +64,7 @@
 	var hasRequiredUtil;
 
 	function requireUtil () {
-		if (hasRequiredUtil) return util.exports;
+		if (hasRequiredUtil) return utilExports;
 		hasRequiredUtil = 1;
 		(function (module, exports) {
 			(function (global, factory) {
@@ -348,11 +357,15 @@
 			    }
 			  });
 			});
-	} (util, util.exports));
-		return util.exports;
+	} (util, utilExports));
+		return utilExports;
 	}
 
-	var eventHandler = {exports: {}};
+	var eventHandlerExports = {};
+	var eventHandler = {
+	  get exports(){ return eventHandlerExports; },
+	  set exports(v){ eventHandlerExports = v; },
+	};
 
 	/*!
 	  * Bootstrap event-handler.js v5.2.3 (https://getbootstrap.com/)
@@ -363,7 +376,7 @@
 	var hasRequiredEventHandler;
 
 	function requireEventHandler () {
-		if (hasRequiredEventHandler) return eventHandler.exports;
+		if (hasRequiredEventHandler) return eventHandlerExports;
 		hasRequiredEventHandler = 1;
 		(function (module, exports) {
 			(function (global, factory) {
@@ -593,12 +606,20 @@
 			  return EventHandler;
 			});
 	} (eventHandler));
-		return eventHandler.exports;
+		return eventHandlerExports;
 	}
 
-	var baseComponent = {exports: {}};
+	var baseComponentExports = {};
+	var baseComponent = {
+	  get exports(){ return baseComponentExports; },
+	  set exports(v){ baseComponentExports = v; },
+	};
 
-	var data = {exports: {}};
+	var dataExports = {};
+	var data = {
+	  get exports(){ return dataExports; },
+	  set exports(v){ dataExports = v; },
+	};
 
 	/*!
 	  * Bootstrap data.js v5.2.3 (https://getbootstrap.com/)
@@ -609,7 +630,7 @@
 	var hasRequiredData;
 
 	function requireData () {
-		if (hasRequiredData) return data.exports;
+		if (hasRequiredData) return dataExports;
 		hasRequiredData = 1;
 		(function (module, exports) {
 			(function (global, factory) {
@@ -663,12 +684,20 @@
 			  return data;
 			});
 	} (data));
-		return data.exports;
+		return dataExports;
 	}
 
-	var config = {exports: {}};
+	var configExports = {};
+	var config = {
+	  get exports(){ return configExports; },
+	  set exports(v){ configExports = v; },
+	};
 
-	var manipulator = {exports: {}};
+	var manipulatorExports = {};
+	var manipulator = {
+	  get exports(){ return manipulatorExports; },
+	  set exports(v){ manipulatorExports = v; },
+	};
 
 	/*!
 	  * Bootstrap manipulator.js v5.2.3 (https://getbootstrap.com/)
@@ -679,7 +708,7 @@
 	var hasRequiredManipulator;
 
 	function requireManipulator () {
-		if (hasRequiredManipulator) return manipulator.exports;
+		if (hasRequiredManipulator) return manipulatorExports;
 		hasRequiredManipulator = 1;
 		(function (module, exports) {
 			(function (global, factory) {
@@ -744,7 +773,7 @@
 			  return Manipulator;
 			});
 	} (manipulator));
-		return manipulator.exports;
+		return manipulatorExports;
 	}
 
 	/*!
@@ -756,7 +785,7 @@
 	var hasRequiredConfig;
 
 	function requireConfig () {
-		if (hasRequiredConfig) return config.exports;
+		if (hasRequiredConfig) return configExports;
 		hasRequiredConfig = 1;
 		(function (module, exports) {
 			(function (global, factory) {
@@ -822,7 +851,7 @@
 			  return Config;
 			});
 	} (config));
-		return config.exports;
+		return configExports;
 	}
 
 	/*!
@@ -834,7 +863,7 @@
 	var hasRequiredBaseComponent;
 
 	function requireBaseComponent () {
-		if (hasRequiredBaseComponent) return baseComponent.exports;
+		if (hasRequiredBaseComponent) return baseComponentExports;
 		hasRequiredBaseComponent = 1;
 		(function (module, exports) {
 			(function (global, factory) {
@@ -914,10 +943,14 @@
 			  return BaseComponent;
 			});
 	} (baseComponent));
-		return baseComponent.exports;
+		return baseComponentExports;
 	}
 
-	var componentFunctions = {exports: {}};
+	var componentFunctionsExports = {};
+	var componentFunctions = {
+	  get exports(){ return componentFunctionsExports; },
+	  set exports(v){ componentFunctionsExports = v; },
+	};
 
 	/*!
 	  * Bootstrap component-functions.js v5.2.3 (https://getbootstrap.com/)
@@ -928,7 +961,7 @@
 	var hasRequiredComponentFunctions;
 
 	function requireComponentFunctions () {
-		if (hasRequiredComponentFunctions) return componentFunctions.exports;
+		if (hasRequiredComponentFunctions) return componentFunctionsExports;
 		hasRequiredComponentFunctions = 1;
 		(function (module, exports) {
 			(function (global, factory) {
@@ -973,8 +1006,8 @@
 			    }
 			  });
 			});
-	} (componentFunctions, componentFunctions.exports));
-		return componentFunctions.exports;
+	} (componentFunctions, componentFunctionsExports));
+		return componentFunctionsExports;
 	}
 
 	/*!
@@ -1064,9 +1097,13 @@
 		});
 	} (alert$1));
 
-	var alert = alert$1.exports;
+	var alert = alertExports;
 
-	var button$1 = {exports: {}};
+	var buttonExports = {};
+	var button$1 = {
+	  get exports(){ return buttonExports; },
+	  set exports(v){ buttonExports = v; },
+	};
 
 	/*!
 	  * Bootstrap button.js v5.2.3 (https://getbootstrap.com/)
@@ -1145,11 +1182,19 @@
 		});
 	} (button$1));
 
-	var button = button$1.exports;
+	var button = buttonExports;
 
-	var carousel$1 = {exports: {}};
+	var carouselExports = {};
+	var carousel$1 = {
+	  get exports(){ return carouselExports; },
+	  set exports(v){ carouselExports = v; },
+	};
 
-	var selectorEngine = {exports: {}};
+	var selectorEngineExports = {};
+	var selectorEngine = {
+	  get exports(){ return selectorEngineExports; },
+	  set exports(v){ selectorEngineExports = v; },
+	};
 
 	/*!
 	  * Bootstrap selector-engine.js v5.2.3 (https://getbootstrap.com/)
@@ -1160,7 +1205,7 @@
 	var hasRequiredSelectorEngine;
 
 	function requireSelectorEngine () {
-		if (hasRequiredSelectorEngine) return selectorEngine.exports;
+		if (hasRequiredSelectorEngine) return selectorEngineExports;
 		hasRequiredSelectorEngine = 1;
 		(function (module, exports) {
 			(function (global, factory) {
@@ -1224,10 +1269,14 @@
 			  return SelectorEngine;
 			});
 	} (selectorEngine));
-		return selectorEngine.exports;
+		return selectorEngineExports;
 	}
 
-	var swipe = {exports: {}};
+	var swipeExports = {};
+	var swipe = {
+	  get exports(){ return swipeExports; },
+	  set exports(v){ swipeExports = v; },
+	};
 
 	/*!
 	  * Bootstrap swipe.js v5.2.3 (https://getbootstrap.com/)
@@ -1238,7 +1287,7 @@
 	var hasRequiredSwipe;
 
 	function requireSwipe () {
-		if (hasRequiredSwipe) return swipe.exports;
+		if (hasRequiredSwipe) return swipeExports;
 		hasRequiredSwipe = 1;
 		(function (module, exports) {
 			(function (global, factory) {
@@ -1366,7 +1415,7 @@
 			  return Swipe;
 			});
 	} (swipe));
-		return swipe.exports;
+		return swipeExports;
 	}
 
 	/*!
@@ -1754,9 +1803,13 @@
 		});
 	} (carousel$1));
 
-	var carousel = carousel$1.exports;
+	var carousel = carouselExports;
 
-	var collapse$1 = {exports: {}};
+	var collapseExports = {};
+	var collapse$1 = {
+	  get exports(){ return collapseExports; },
+	  set exports(v){ collapseExports = v; },
+	};
 
 	/*!
 	  * Bootstrap collapse.js v5.2.3 (https://getbootstrap.com/)
@@ -2006,9 +2059,13 @@
 		});
 	} (collapse$1));
 
-	var collapse = collapse$1.exports;
+	var collapse = collapseExports;
 
-	var dropdown$1 = {exports: {}};
+	var dropdownExports = {};
+	var dropdown$1 = {
+	  get exports(){ return dropdownExports; },
+	  set exports(v){ dropdownExports = v; },
+	};
 
 	var top = 'top';
 	var bottom = 'bottom';
@@ -3636,44 +3693,44 @@
 
 	var lib = /*#__PURE__*/Object.freeze({
 		__proto__: null,
-		popperGenerator: popperGenerator,
-		detectOverflow: detectOverflow,
-		createPopperBase: createPopper$2,
-		createPopper: createPopper,
-		createPopperLite: createPopper$1,
-		top: top,
-		bottom: bottom,
-		right: right,
-		left: left,
-		auto: auto,
-		basePlacements: basePlacements,
-		start: start,
-		end: end,
-		clippingParents: clippingParents,
-		viewport: viewport,
-		popper: popper,
-		reference: reference,
-		variationPlacements: variationPlacements,
-		placements: placements,
-		beforeRead: beforeRead,
-		read: read,
-		afterRead: afterRead,
-		beforeMain: beforeMain,
-		main: main,
 		afterMain: afterMain,
-		beforeWrite: beforeWrite,
-		write: write,
+		afterRead: afterRead,
 		afterWrite: afterWrite,
-		modifierPhases: modifierPhases,
 		applyStyles: applyStyles$1,
 		arrow: arrow$1,
+		auto: auto,
+		basePlacements: basePlacements,
+		beforeMain: beforeMain,
+		beforeRead: beforeRead,
+		beforeWrite: beforeWrite,
+		bottom: bottom,
+		clippingParents: clippingParents,
 		computeStyles: computeStyles$1,
+		createPopper: createPopper,
+		createPopperBase: createPopper$2,
+		createPopperLite: createPopper$1,
+		detectOverflow: detectOverflow,
+		end: end,
 		eventListeners: eventListeners,
 		flip: flip$1,
 		hide: hide$1,
+		left: left,
+		main: main,
+		modifierPhases: modifierPhases,
 		offset: offset$1,
+		placements: placements,
+		popper: popper,
+		popperGenerator: popperGenerator,
 		popperOffsets: popperOffsets$1,
-		preventOverflow: preventOverflow$1
+		preventOverflow: preventOverflow$1,
+		read: read,
+		reference: reference,
+		right: right,
+		start: start,
+		top: top,
+		variationPlacements: variationPlacements,
+		viewport: viewport,
+		write: write
 	});
 
 	var require$$0 = /*@__PURE__*/getAugmentedNamespace(lib);
@@ -4075,11 +4132,19 @@
 		});
 	} (dropdown$1));
 
-	var dropdown = /*@__PURE__*/getDefaultExportFromCjs(dropdown$1.exports);
+	var dropdown = /*@__PURE__*/getDefaultExportFromCjs(dropdownExports);
 
-	var modal$1 = {exports: {}};
+	var modalExports = {};
+	var modal$1 = {
+	  get exports(){ return modalExports; },
+	  set exports(v){ modalExports = v; },
+	};
 
-	var scrollbar = {exports: {}};
+	var scrollbarExports = {};
+	var scrollbar = {
+	  get exports(){ return scrollbarExports; },
+	  set exports(v){ scrollbarExports = v; },
+	};
 
 	/*!
 	  * Bootstrap scrollbar.js v5.2.3 (https://getbootstrap.com/)
@@ -4090,7 +4155,7 @@
 	var hasRequiredScrollbar;
 
 	function requireScrollbar () {
-		if (hasRequiredScrollbar) return scrollbar.exports;
+		if (hasRequiredScrollbar) return scrollbarExports;
 		hasRequiredScrollbar = 1;
 		(function (module, exports) {
 			(function (global, factory) {
@@ -4198,10 +4263,14 @@
 			  return ScrollBarHelper;
 			});
 	} (scrollbar));
-		return scrollbar.exports;
+		return scrollbarExports;
 	}
 
-	var backdrop = {exports: {}};
+	var backdropExports = {};
+	var backdrop = {
+	  get exports(){ return backdropExports; },
+	  set exports(v){ backdropExports = v; },
+	};
 
 	/*!
 	  * Bootstrap backdrop.js v5.2.3 (https://getbootstrap.com/)
@@ -4212,7 +4281,7 @@
 	var hasRequiredBackdrop;
 
 	function requireBackdrop () {
-		if (hasRequiredBackdrop) return backdrop.exports;
+		if (hasRequiredBackdrop) return backdropExports;
 		hasRequiredBackdrop = 1;
 		(function (module, exports) {
 			(function (global, factory) {
@@ -4346,10 +4415,14 @@
 			  return Backdrop;
 			});
 	} (backdrop));
-		return backdrop.exports;
+		return backdropExports;
 	}
 
-	var focustrap = {exports: {}};
+	var focustrapExports = {};
+	var focustrap = {
+	  get exports(){ return focustrapExports; },
+	  set exports(v){ focustrapExports = v; },
+	};
 
 	/*!
 	  * Bootstrap focustrap.js v5.2.3 (https://getbootstrap.com/)
@@ -4360,7 +4433,7 @@
 	var hasRequiredFocustrap;
 
 	function requireFocustrap () {
-		if (hasRequiredFocustrap) return focustrap.exports;
+		if (hasRequiredFocustrap) return focustrapExports;
 		hasRequiredFocustrap = 1;
 		(function (module, exports) {
 			(function (global, factory) {
@@ -4470,7 +4543,7 @@
 			  return FocusTrap;
 			});
 	} (focustrap));
-		return focustrap.exports;
+		return focustrapExports;
 	}
 
 	/*!
@@ -4793,9 +4866,13 @@
 		});
 	} (modal$1));
 
-	var modal = modal$1.exports;
+	var modal = modalExports;
 
-	var offcanvas$1 = {exports: {}};
+	var offcanvasExports = {};
+	var offcanvas$1 = {
+	  get exports(){ return offcanvasExports; },
+	  set exports(v){ offcanvasExports = v; },
+	};
 
 	/*!
 	  * Bootstrap offcanvas.js v5.2.3 (https://getbootstrap.com/)
@@ -5041,13 +5118,25 @@
 		});
 	} (offcanvas$1));
 
-	var offcanvas = offcanvas$1.exports;
+	var offcanvas = offcanvasExports;
 
-	var popover$1 = {exports: {}};
+	var popoverExports = {};
+	var popover$1 = {
+	  get exports(){ return popoverExports; },
+	  set exports(v){ popoverExports = v; },
+	};
 
-	var tooltip$1 = {exports: {}};
+	var tooltipExports = {};
+	var tooltip$1 = {
+	  get exports(){ return tooltipExports; },
+	  set exports(v){ tooltipExports = v; },
+	};
 
-	var sanitizer = {exports: {}};
+	var sanitizerExports = {};
+	var sanitizer = {
+	  get exports(){ return sanitizerExports; },
+	  set exports(v){ sanitizerExports = v; },
+	};
 
 	/*!
 	  * Bootstrap sanitizer.js v5.2.3 (https://getbootstrap.com/)
@@ -5058,7 +5147,7 @@
 	var hasRequiredSanitizer;
 
 	function requireSanitizer () {
-		if (hasRequiredSanitizer) return sanitizer.exports;
+		if (hasRequiredSanitizer) return sanitizerExports;
 		hasRequiredSanitizer = 1;
 		(function (module, exports) {
 			(function (global, factory) {
@@ -5168,11 +5257,15 @@
 			    }
 			  });
 			});
-	} (sanitizer, sanitizer.exports));
-		return sanitizer.exports;
+	} (sanitizer, sanitizerExports));
+		return sanitizerExports;
 	}
 
-	var templateFactory = {exports: {}};
+	var templateFactoryExports = {};
+	var templateFactory = {
+	  get exports(){ return templateFactoryExports; },
+	  set exports(v){ templateFactoryExports = v; },
+	};
 
 	/*!
 	  * Bootstrap template-factory.js v5.2.3 (https://getbootstrap.com/)
@@ -5183,7 +5276,7 @@
 	var hasRequiredTemplateFactory;
 
 	function requireTemplateFactory () {
-		if (hasRequiredTemplateFactory) return templateFactory.exports;
+		if (hasRequiredTemplateFactory) return templateFactoryExports;
 		hasRequiredTemplateFactory = 1;
 		(function (module, exports) {
 			(function (global, factory) {
@@ -5328,7 +5421,7 @@
 			  return TemplateFactory;
 			});
 	} (templateFactory));
-		return templateFactory.exports;
+		return templateFactoryExports;
 	}
 
 	/*!
@@ -5872,7 +5965,7 @@
 		});
 	} (tooltip$1));
 
-	var tooltip = /*@__PURE__*/getDefaultExportFromCjs(tooltip$1.exports);
+	var tooltip = /*@__PURE__*/getDefaultExportFromCjs(tooltipExports);
 
 	/*!
 	  * Bootstrap popover.js v5.2.3 (https://getbootstrap.com/)
@@ -5882,7 +5975,7 @@
 
 	(function (module, exports) {
 		(function (global, factory) {
-		  module.exports = factory(requireUtil(), tooltip$1.exports) ;
+		  module.exports = factory(requireUtil(), tooltipExports) ;
 		})(commonjsGlobal, function (index, Tooltip) {
 
 		  const _interopDefaultLegacy = e => e && typeof e === 'object' && 'default' in e ? e : {
@@ -5967,9 +6060,13 @@
 		});
 	} (popover$1));
 
-	var popover = popover$1.exports;
+	var popover = popoverExports;
 
-	var scrollspy$1 = {exports: {}};
+	var scrollspyExports = {};
+	var scrollspy$1 = {
+	  get exports(){ return scrollspyExports; },
+	  set exports(v){ scrollspyExports = v; },
+	};
 
 	/*!
 	  * Bootstrap scrollspy.js v5.2.3 (https://getbootstrap.com/)
@@ -6236,9 +6333,13 @@
 		});
 	} (scrollspy$1));
 
-	var scrollspy = scrollspy$1.exports;
+	var scrollspy = scrollspyExports;
 
-	var tab$1 = {exports: {}};
+	var tabExports = {};
+	var tab$1 = {
+	  get exports(){ return tabExports; },
+	  set exports(v){ tabExports = v; },
+	};
 
 	/*!
 	  * Bootstrap tab.js v5.2.3 (https://getbootstrap.com/)
@@ -6511,9 +6612,13 @@
 		});
 	} (tab$1));
 
-	var tab = tab$1.exports;
+	var tab = tabExports;
 
-	var toast$1 = {exports: {}};
+	var toastExports = {};
+	var toast$1 = {
+	  get exports(){ return toastExports; },
+	  set exports(v){ toastExports = v; },
+	};
 
 	/*!
 	  * Bootstrap toast.js v5.2.3 (https://getbootstrap.com/)
@@ -6712,7 +6817,7 @@
 		});
 	} (toast$1));
 
-	var toast = toast$1.exports;
+	var toast = toastExports;
 
 	/**
 	 * File skip-link-focus-fix.js.

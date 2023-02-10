@@ -1,4 +1,50 @@
-@import "theme/child_theme_variables";                   // <------- Add your variables into this file. Also add variables to overwrite Bootstrap variables here
+@import "assets/bootstrap5/functions";
+
+$border-radius: 0;
+$border-radius-lg: 0;
+$border-radius-sm: 0;
+$input-btn-padding-y: 1.125rem;
+$input-btn-padding-x: 2.1875rem;
+$input-btn-focus-box-shadow: none;
+$green: #8EA73B;
+$blue: #599DF2;
+$yellow: #FFBF2F;
+$orange: #F77F00;
+$primary: #F77F00;
+$white: white;
+$transparent: transparent;
+$font-family-sans-serif: 'Commuters Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+$font-size-base: 1.125rem;
+$line-height-base: 1.4;
+$btn-focus-box-shadow: none;
+$btn-active-box-shadow: inset 0 3px 5px rgba($transparent, 0);
+$btn-box-shadow: inset 0 1px 0 rgba($white, .15), 0 1px 1px rgba($transparent, 0);
+$input-btn-focus-width: .21rem;
+$input-focus-box-shadow: 0 0 0 $input-btn-focus-width $green;
+$input-focus-border-color: lighten($green, 25%);
+$gray-600: #8D939D;
+$gray-800: #1B263B;
+$yiq-text-dark: $gray-800;
+$body-color: $gray-800;
+$link-color: $gray-800;
+$secondary: #F7EBE0;
+
+$grid-gutter-width: 72px;
+
+// 3. Include remainder of required Bootstrap stylesheets
+@import "assets/bootstrap5/variables";
+
+// 4. Include any default map overrides here
+$theme-colors: (
+  "primary":    $primary,
+  "secondary":  $secondary,
+  "success":    $success,
+  "info":       $info,
+  "warning":    $warning,
+  "danger":     $danger,
+  "light":      $light,
+  "dark":       $dark
+);              // <------- Add your variables into this file. Also add variables to overwrite Bootstrap variables here
 @import "assets/bootstrap5/bootstrap";                             // <------- Loads Bootstrap5
 @import "assets/understrap/theme/understrap";  // <------- Loads the Understrap defaults. Just a few classes to incorporate BS in WP
 @import "assets/understrap/theme/woocommerce"; // <------- Loads WooCommerce style fixes. Comment out if you aren't using WooCommerce

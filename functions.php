@@ -92,3 +92,18 @@ function understrap_child_customize_controls_js() {
 	);
 }
 add_action( 'customize_controls_enqueue_scripts', 'understrap_child_customize_controls_js' );
+$theme_ACF = __DIR__ . '/inc/acf.php';
+$theme_ACFDIR  = __DIR__ . '/inc/acf/';
+if ( is_readable( $theme_ACF ) ) {
+	require_once $theme_ACF;
+}
+$theme_tweaks = __DIR__ . '/inc/tweaks.php';
+if ( is_readable( $theme_tweaks ) ) {
+	require_once $theme_tweaks;
+}
+function enable_svg_upload( $upload_mimes ) {
+    $upload_mimes['svg'] = 'image/svg+xml';
+    $upload_mimes['svgz'] = 'image/svg+xml';
+    return $upload_mimes;
+}
+add_filter( 'upload_mimes', 'enable_svg_upload', 10, 1 );
